@@ -6,4 +6,18 @@ header,
 footer {
   background-color: lightblue;
   padding: 12px;
+  text-decoration: none;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 150px);
+  grid-gap: 20px;
+}
+
+.box {
+  width: 150px;
+  height: 150px;
+  background-color: blue;
+  border-radius: 15px;
 }
