@@ -9,12 +9,20 @@ const app = createApp({
 });
 
 /* Startseite */
+app.get("/storys", async function (req, res) {
+  res.render("storys", {});
+});
+
+app.get("/registrieren", async function (req, res) {
+  res.render("registrieren", {});
+});
+
 app.get("/", async function (req, res) {
   res.render("start", {});
 });
 
-app.get("/impressum", async function (req, res) {
-  res.render("impressum", {});
+app.get("/login", async function (req, res) {
+  res.render("login", {});
 });
 
 /* Wichtig! Diese Zeilen müssen immer am Schluss der Website stehen! */

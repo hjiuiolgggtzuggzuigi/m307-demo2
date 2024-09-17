@@ -4,15 +4,22 @@
 
 header,
 footer {
-  background-color: lightblue;
+  background-color: #74968e;
   padding: 12px;
-  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .container {
   display: grid;
   grid-template-columns: repeat(3, 150px);
-  grid-gap: 20px;
+  grid-gap: 10%;
+  margin-top: 10%;
+}
+.allgemein {
+  display: flex;
+  justify-content: center;
 }
 
 .box {
@@ -20,4 +27,32 @@ footer {
   height: 150px;
   background-color: blue;
   border-radius: 15px;
+}
+header a {
+  text-decoration: none;
+}
+.all {
+  display: flex;
+  justify-content: center;
+}
+.login-box {
+  border-color: #74968e;
+  border-width: 5px;
+  border-style: solid;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 10% 0;
+  width: 70vw;
+}
+input {
+  border-color: #74968e;
+  border-width: 2px;
+  border-style: solid;
+  margin-bottom: 5%;
+  border-radius: 15px;
+  padding: 5%;
+}
+.eingabe {
+  margin-bottom: 5%;
 }
