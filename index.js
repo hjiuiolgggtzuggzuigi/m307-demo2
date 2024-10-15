@@ -1,16 +1,17 @@
 import { createApp } from "./config.js";
 
 const app = createApp({
-  user: "autumn_star_7622",
-  host: "168.119.168.41",
-  database: "demo",
-  password: "uaioysdfjoysfdf",
-  port: 18324,
+  user: "autumn_field_7551",
+  host: "bbz.cloud",
+  database: "autumn_field_7551",
+  password: "a10c4fb3242bbb1f2504be3605836b1a",
+  port: 30211,
 });
 
 /* Startseite */
 app.get("/storys", async function (req, res) {
-  res.render("storys", {});
+  const posts = await app.locals.pool.query("select * from posts");
+  res.render("storys", { posts: posts.row });
 });
 
 app.get("/registrieren", async function (req, res) {
