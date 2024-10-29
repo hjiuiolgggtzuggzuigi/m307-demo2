@@ -8,8 +8,13 @@
       </div>
       <div class="eingabe">
         <h3>Passwort</h3>
-        <input type="text" name="" value="" />
+        <input type="password" name="" value="" />
       </div>
     </div>
   </div>
 </div>
+
+{{#users}}
+  <p>{{email}}</p>
+  <p>{{passwort}}</p>
+{{/users}}

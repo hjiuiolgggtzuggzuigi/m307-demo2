@@ -1,18 +1,36 @@
-
 <div class="allgemein">
-    <div class="container">
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-    </div>
+  <div class="container">
+    {{#posts}}
+      <div class="box">
+        <h1>{{titel}}</h1>
+        <p class="inhalt">{{inhalt}}</p>
+        <p>{{datum}}</p>
+        <p>{{email}}</p>
+      </div>
+    {{/posts}}
+  </div>
 </div>
-<p>Willkommen auf meiner Website. Hier wird in Kürze eine interaktive Webapplikation entstehen. Viel Vergnügen!</p>
 
-<img src="construction.gif" width="200">
+{{#likes}}
+  <p>{{user_id}}</p>
+  <p>{{post_id}}</p>
+{{/likes}}
 
-{{> contactform}}
+{{#kommentare}}
+  <p>{{inhalt}}</p>
+  <p>{{datum}}</p>
+  <p>{{email}}</p>
+{{/kommentare}}
 
+<form action="/houzchopf" method="post">
+  <input type="text" name="titel" />
+  <input type="text" name="inhalt" />
+  <input type="date" name="datum" />
+  <input type="submit" />
+</form>;
 
+<form action="/voupfoschte" method="post">
+  <input type="text" name="inhalt" />
+  <input type="date" name="datum" />
+  <input type="submit" />
+</form>;
