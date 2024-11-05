@@ -8,8 +8,12 @@ const app = createApp({
   port: 30211,
 });
 
-/* Startseite */
-app.get("/storys", async function (req, res) {
+app.get("/", async function (req, res) {
+  if (!req.session.userid) {
+    res.redirect("/login");
+    return;
+  }
+
   const posts = await app.locals.pool.query(
     "SELECT posts.*, email FROM posts INNER JOIN users ON posts.user_id = users.id"
   );
@@ -22,18 +26,6 @@ app.get("/storys", async function (req, res) {
     likes: likes.rows,
     kommentare: kommentare.rows,
   });
-});
-
-app.get("/registrieren", async function (req, res) {
-  res.render("registrieren", {});
-});
-
-app.get("/", async function (req, res) {
-  res.render("start", {});
-});
-
-app.get("/login", async function (req, res) {
-  res.render("login", {});
 });
 
 /* Wichtig! Diese Zeilen müssen immer am Schluss der Website stehen! */
