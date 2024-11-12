@@ -6,6 +6,7 @@
         <p class="inhalt">{{inhalt}}</p>
         <p>{{datum}}</p>
         <p>{{email}}</p>
+        <p><img src="/uploads/{{bild}}" /></p>
       </div>
     {{/posts}}
   </div>
@@ -22,10 +23,11 @@
   <p>{{email}}</p>
 {{/kommentare}}
 
-<form action="/houzchopf" method="post">
+<form action="/houzchopf" enctype="multipart/form-data" method="post">
   <input type="text" name="titel" />
   <input type="text" name="inhalt" />
   <input type="date" name="datum" />
+  <input type="file" name="bild" />
   <input type="submit" />
 </form>;
 

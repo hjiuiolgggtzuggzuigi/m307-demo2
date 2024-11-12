@@ -1,4 +1,4 @@
-import { createApp } from "./config.js";
+import { createApp, upload } from "./config.js";
 
 const app = createApp({
   user: "autumn_field_7551",
@@ -33,10 +33,16 @@ app.listen(3010, () => {
   console.log(`Example app listening at http://localhost:3010`);
 });
 
-app.post("/houzchopf", async function (req, res) {
+app.post("/houzchopf", upload.single("bild"), async function (req, res) {
   await app.locals.pool.query(
-    "INSERT INTO posts (titel, inhalt, datum) VALUES ($1, $2, $3)",
-    [req.body.titel, req.body.inhalt, req.body.datum]
+    "INSERT INTO posts (titel, inhalt, datum, bild, user_id) VALUES ($1, $2, $3, $4, $5)",
+    [
+      req.body.titel,
+      req.body.inhalt,
+      req.body.datum,
+      req.file.filename,
+      req.session.userid,
+    ]
   );
 
   res.redirect("/");
