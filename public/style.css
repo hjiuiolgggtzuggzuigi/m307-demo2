@@ -11,6 +11,11 @@ footer {
   justify-content: space-around;
 }
 
+p,
+h1 {
+  margin-left: 2vw;
+}
+
 .container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -23,8 +28,10 @@ footer {
 }
 
 .box {
-  background-color: blue;
+  background-color: #74968e;
   border-radius: 15px;
+  width: 30vw;
+  height: 50vh;
 }
 
 .box h1 {
@@ -58,4 +65,14 @@ input {
 }
 .eingabe {
   margin-bottom: 5%;
+}
+
+.like {
+  color: red;
+}
+
+.titel-like {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }

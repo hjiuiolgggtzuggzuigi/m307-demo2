@@ -56,3 +56,28 @@ app.post("/voupfoschte", async function (req, res) {
 
   res.redirect("/");
 });
+
+app.post("/like/:id", async function (req, res) {
+  if (!req.session.userid) {
+    res.redirect("/login");
+    return;
+  }
+  await app.locals.pool.query(
+    "INSERT INTO likes (post_id, user_id) VALUES ($1, $2)",
+    [req.params.id, req.session.userid]
+  );
+  res.redirect("/");
+});
+
+app.post("/kommentare/:id", async function (req, res) {
+  if (!req.session.userid) {
+    res.redirect("/login");
+    return;
+  }
+  console.log(req.body);
+  await app.locals.pool.query(
+    "INSERT INTO kommentare (post_id, user_id, inhalt, datum) VALUES ($1, $2, $3, current_timestamp)",
+    [req.params.id, req.session.userid, req.body.inhalt]
+  );
+  res.redirect("/");
+});
