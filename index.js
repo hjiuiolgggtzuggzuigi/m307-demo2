@@ -17,14 +17,17 @@ app.get("/", async function (req, res) {
   const posts = await app.locals.pool.query(
     "SELECT posts.*, email FROM posts INNER JOIN users ON posts.user_id = users.id"
   );
+  for (const post of posts.rows) {
+    const kommentare = await app.locals.pool.query(
+      "select * from kommentare where post_id = $1",
+      [post.id]
+    );
+    post.kommentare = kommentare.rows;
+  }
   const likes = await app.locals.pool.query("select * from likes");
-  const kommentare = await app.locals.pool.query(
-    "select * from kommentare INNER JOIN users ON kommentare.user_id = users.id"
-  );
   res.render("storys", {
     posts: posts.rows,
     likes: likes.rows,
-    kommentare: kommentare.rows,
   });
 });
 

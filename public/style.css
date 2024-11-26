@@ -31,7 +31,7 @@ h1 {
   background-color: #74968e;
   border-radius: 15px;
   width: 30vw;
-  height: 50vh;
+  height: 100vh;
 }
 
 .box h1 {
@@ -75,4 +75,19 @@ input {
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+.bild {
+  width: 50%;
+  height: 50%;
+}
+
+.kommentare {
+  height: 100px;
+  overflow-y: scroll;
+}
+
+.box img {
+  width: 80%;
+  height: auto;
 }

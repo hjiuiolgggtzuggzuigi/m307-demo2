@@ -17,9 +17,17 @@
         <p>{{email}}</p>
         <p><img src="/uploads/{{bild}}" /></p>
 
+        <div class="kommentare">
+          {{#kommentare}}
+            <p>{{inhalt}}</p>
+            <p>{{datum}}</p>
+            <p>{{email}}</p>
+          {{/kommentare}}
+        </div>
+
         <form action="/kommentare/{{id}}" method="POST">
           <input type="text" name="inhalt" />
-          <input class="kommentare" type="submit" value="liken" />
+          <input class="kommentare" type="submit" value="kommentieren" />
         </form>
       </div>
     {{/posts}}
@@ -30,12 +38,6 @@
   <p>{{user_id}}</p>
   <p>{{post_id}}</p>
 {{/likes}}
-
-{{#kommentare}}
-  <p>{{inhalt}}</p>
-  <p>{{datum}}</p>
-  <p>{{email}}</p>
-{{/kommentare}}
 
 <form action="/houzchopf" enctype="multipart/form-data" method="post">
   <input type="text" name="titel" />
