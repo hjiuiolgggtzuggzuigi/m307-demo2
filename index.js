@@ -84,3 +84,6 @@ app.post("/kommentare/:id", async function (req, res) {
   );
   res.redirect("/");
 });
+app.get("/impress", function (req, res) {
+  res.render("impress"); // Die "impress.handlebars"-Datei muss vorhanden sein
+});

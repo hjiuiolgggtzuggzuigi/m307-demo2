@@ -12,15 +12,16 @@
             <button class="like" type="submit">❤️ Liken</button>
           </form>
         </div>
+        <p class="zeitA">{{datum}}</p>
         <p class="inhalt">{{inhalt}}</p>
-        <p>{{datum}}</p>
+
         <p>{{email}}</p>
         <p><img src="/uploads/{{bild}}" /></p>
 
         <div class="kommentare">
           {{#kommentare}}
             <p>{{inhalt}}</p>
-            <p>{{datum}}</p>
+            <p class="zeitB">{{datum}}</p>
             <p>{{email}}</p>
           {{/kommentare}}
         </div>
