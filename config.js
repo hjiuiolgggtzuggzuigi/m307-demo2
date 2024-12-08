@@ -61,11 +61,19 @@ export function createApp(dbconfig) {
         if (error) {
           console.log(error);
         }
-        if (bcrypt.compareSync(req.body.passwort, result.rows[0].passwort)) {
-          req.session.userid = result.rows[0].id;
-          res.redirect("/");
+        if (result.rows.length > 0) {
+          // Prüfen, ob ein Ergebnis existiert
+          const user = result.rows[0]; // Erstes Ergebnis in einer Variablen speichern
+          if (bcrypt.compareSync(req.body.passwort, user.passwort)) {
+            // Passwort prüfen
+            req.session.userid = user.id; // Benutzer-ID in der Session speichern
+            res.redirect("/"); // Weiterleitung nach erfolgreichem Login
+          } else {
+            res.redirect("/login"); // Falsches Passwort
+          }
         } else {
-          res.redirect("/login");
+          console.error("Kein Benutzer gefunden."); // Debug-Ausgabe
+          res.redirect("/login"); // Weiterleitung bei fehlendem Benutzer
         }
       }
     );

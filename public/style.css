@@ -2,6 +2,15 @@
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
 header,
 footer {
   background-color: #74968e;
@@ -40,6 +49,8 @@ h1 {
 
 header a {
   text-decoration: none;
+  color: white;
+  text-decoration: none;
 }
 .all {
   display: flex;
@@ -68,7 +79,25 @@ input {
 }
 
 .like {
-  color: red;
+  background-color: #ff6b6b; /* Schönes Rot */
+  color: white; /* Textfarbe */
+  border: none; /* Kein Rahmen */
+  border-radius: 25px; /* Abgerundete Ecken */
+  padding: 10px 20px; /* Innenabstand */
+  cursor: pointer; /* Zeiger zeigt Klickbarkeit */
+  font-size: 16px; /* Schriftgröße */
+  font-weight: bold; /* Fettschrift */
+  transition: all 0.3s ease; /* Animation beim Hover */
+}
+
+.like:hover {
+  background-color: #ff4a4a; /* Dunkleres Rot beim Hover */
+  transform: scale(1.1); /* Button wird größer */
+}
+
+.like:active {
+  background-color: #d93737; /* Dunkleres Rot beim Klicken */
+  transform: scale(0.95); /* Button wird leicht kleiner */
 }
 
 .titel-like {
