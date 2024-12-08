@@ -34,21 +34,15 @@
   </div>
 </div>
 
-{{#likes}}
-  <p>{{user_id}}</p>
-  <p>{{post_id}}</p>
-{{/likes}}
-
-<form action="/houzchopf" enctype="multipart/form-data" method="post">
-  <input type="text" name="titel" />
-  <input type="text" name="inhalt" />
+<form
+  class="form-upload"
+  action="/houzchopf"
+  enctype="multipart/form-data"
+  method="post"
+>
+  <input type="text" name="titel" placeholder="Titel" />
+  <input type="text" name="inhalt" placeholder="Beschreibung" />
   <input type="date" name="datum" />
   <input type="file" name="bild" />
-  <input type="submit" />
-</form>;
-
-<form action="/voupfoschte" method="post">
-  <input type="text" name="inhalt" />
-  <input type="date" name="datum" />
   <input type="submit" />
 </form>;
